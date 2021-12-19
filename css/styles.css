@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+.flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/***** some base definitions from https://piccalil.li/blog/a-modern-css-reset/ *****/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Karla", sans-serif;
+  cursor: pointer;
+}
+
+/***** main styles *****/
+html {
+  font-size: 16px;
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: #e5eff5;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .grid-container {
+    padding: 50px 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 500px) {
+  .grid-container {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    padding: 0px 30px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .grid-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1.2fr 1.2fr;
+        grid-template-columns: 1.2fr 1.2fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+        grid-template-areas: "first-grid-element first-grid-element" "second-grid-element third-grid-element";
+    width: 50vw;
+  }
+}
+
+.grid-element {
+  padding: 30px;
+}
+
+.first-grid-element {
+  background-color: white;
+  color: #98a6bd;
+}
+
+.first-grid-element .first-title {
+  color: #2ab2af;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.first-grid-element .first-title-2 {
+  color: #c0df34;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.first-grid-element .first-desc {
+  line-height: 25px;
+}
+
+@media screen and (min-width: 1000px) {
+  .first-grid-element {
+    grid-area: first-grid-element;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .first-grid-element {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.second-grid-element {
+  background-color: #2ab2af;
+  color: white;
+  -webkit-box-shadow: 5px 12px 20px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 12px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.second-grid-element .monthly-subsc {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.second-grid-element .price-container {
+  margin-bottom: 5px;
+}
+
+.second-grid-element .price-container .price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.second-grid-element .price-container .per-period {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+.second-grid-element .second-desc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.second-grid-element .sign-up-btn {
+  color: white;
+  font-weight: 700;
+  background-color: #c0df34;
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+  -webkit-transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.second-grid-element .sign-up-btn:hover {
+  background-color: rgba(192, 223, 52, 0.8);
+}
+
+@media screen and (min-width: 1000px) {
+  .second-grid-element {
+    grid-area: second-grid-element;
+    border-radius: 0 0 0 10px;
+  }
+}
+
+.third-grid-element {
+  background-color: rgba(42, 178, 175, 0.7);
+  color: white;
+  padding: 30px 100px 30px 30px;
+  -webkit-box-shadow: 5px 12px 20px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 12px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.third-grid-element .third-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.third-grid-element .third-desc {
+  opacity: 0.9;
+  font-size: 0.85rem;
+  line-height: 25px;
+}
+
+@media screen and (min-width: 1000px) {
+  .third-grid-element {
+    grid-area: third-grid-element;
+    border-radius: 0 0 10px 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .third-grid-element {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.attribution {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 5px;
+  margin-top: 20px;
+  grid-column: span 2;
+}
+
+.attribution a {
+  color: #2ab2af;
+  font-weight: 700;
+}
+/*# sourceMappingURL=styles.css.map */

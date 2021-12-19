@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+$cyan: rgb(42, 178, 175);
+$bright-yellow: rgb(192, 223, 52);
+$light-gray: rgb(229, 239, 245);
+$grayish-blue: rgb(152, 166, 189);
+$font-size: 16px;
+$font-family: 'Karla', sans-serif;;
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+  
+/***** some base definitions from https://piccalil.li/blog/a-modern-css-reset/ *****/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: $font-family;
+  cursor: pointer;
+}
+
+/***** main styles *****/
+html {
+  font-size: $font-size;
+  font-family: $font-family;
+  font-weight: 400;
+}
+
+body {
+  background-color: $light-gray;
+  display: grid;
+  place-content: center;
+  font-weight: 400;
+
+  @media screen and (min-width: 1000px) {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .grid-container {
+    padding: 50px 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 500px){
+  .grid-container {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    padding: 0px 30px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .grid-container {
+    display: grid; 
+    grid-template-columns: 1.2fr 1.2fr;
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "first-grid-element first-grid-element"
+      "second-grid-element third-grid-element";
+    width: 50vw;
+  }
+}
+
+.grid-element {
+  padding: 30px;
+}
+
+.first-grid-element { 
+  background-color: white;
+  color: $grayish-blue;
+
+  .first-title {
+    color: $cyan;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .first-title-2 {
+    color: $bright-yellow;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .first-desc {
+    line-height: 25px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    grid-area: first-grid-element; 
+    border-radius: 10px 10px 0 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.second-grid-element { 
+  background-color: $cyan;
+  color: white;
+  box-shadow: 5px 12px 20px 0px rgba(0,0,0,0.1);
+
+  .monthly-subsc {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .price-container {
+    margin-bottom: 5px;
+
+    .price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .per-period {
+      align-self: center;
+      font-size: 0.85rem;
+      opacity: 0.5;
+    }
+  }
+
+  .second-desc {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .sign-up-btn {
+    color: white;
+    font-weight: 700;
+    background-color: $bright-yellow;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.15);
+    transition: background-color 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(192, 223, 52, 0.8);
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    grid-area: second-grid-element; 
+    border-radius: 0 0 0 10px;
+  }
+}
+
+.third-grid-element { 
+  background-color: rgba(42, 178, 175, 0.7);
+  color: white;
+  padding: 30px 100px 30px 30px;
+  box-shadow: 5px 12px 20px 0px rgba(0,0,0,0.1);
+
+  .third-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .third-desc {
+    opacity: 0.9;
+    font-size: 0.85rem;
+    line-height: 25px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    grid-area: third-grid-element; 
+    border-radius: 0 0 10px 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.attribution {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 5px;
+  margin-top: 20px;
+  grid-column: span 2;
+
+  a {
+    color: $cyan;
+    font-weight: 700;
+  }
+}
